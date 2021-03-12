@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Filter";
 }
 
 
@@ -35,28 +35,28 @@
                 @foreach (var movie in Model.Movies)
                 {
 
-                <tr>
-                    <td>@movie.Name</td>
-                    <td>@movie.PublicationDate.ToString("dd.MM.yyyy")</td>
-                    <td>@movie.Duration min</td>
-                    <td>
-                        @foreach (var genre in Model.GetGenresOfMovie(movie.Id))
-                        {
-                            <span class="badge">@genre.Name </span>
-                        }
-                    </td>
-                    <td>
-                        @foreach (var country in Model.GetCountriesOfMovie(movie.Id))
-                        {
-                            <span class="badge">@country.Name </span>
-                        }
-                    </td>
-                    <td>
-                        <a href="@movie.Link" target="_blank">
-                            Trailer
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>@movie.Name</td>
+                        <td>@movie.PublicationDate.ToString("dd.MM.yyyy")</td>
+                        <td>@movie.Duration min</td>
+                        <td>
+                            @foreach (var genre in Model.GetGenresOfMovie(movie.Id))
+                            {
+                                <span class="badge">@genre.Name </span>
+                            }
+                        </td>
+                        <td>
+                            @foreach (var country in Model.GetCountriesOfMovie(movie.Id))
+                            {
+                                <span class="badge">@country.Name </span>
+                            }
+                        </td>
+                        <td>
+                            <a href="@movie.Link" target="_blank">
+                                Trailer
+                            </a>
+                        </td>
+                    </tr>
 
 
                 }
@@ -64,4 +64,5 @@
             </tbody>
         </table>
     </div>
-        </div>
+</div>
+
