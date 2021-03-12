@@ -36,7 +36,12 @@
                 {
 
                 <tr>
-                    <td>@movie.Name</td>
+                    <td>
+                        <a href="@Url.Action("Detail","Home", new { id=@movie.Id })" target="_blank">
+                            @movie.Name
+                        </a>
+                        
+                    </td>
                     <td>@movie.PublicationDate.ToString("dd.MM.yyyy")</td>
                     <td>@movie.Duration min</td>
                     <td>
