@@ -10,8 +10,8 @@ namespace MovieProject.Models
     {
         public Movie()
         {
-            this.Genres = new HashSet<Genre>();
-            this.Countries = new HashSet<Country>();
+            this.MovieGenres = new HashSet<MovieGenre>();
+            this.MovieCountries = new HashSet<MovieCountry>();
         }
         [Required(ErrorMessage = "The field is required")]
         public DateTime? PublicationDate { get; set; }
@@ -19,7 +19,7 @@ namespace MovieProject.Models
         public double Duration { get; set; }
         [Required(ErrorMessage = "The field is required")]
         public string Link { get; set; }
-        public virtual ICollection<Genre> Genres { get; set; }
-        public virtual ICollection<Country> Countries { get; set; }
+        public virtual ICollection<MovieGenre> MovieGenres { get; set; }
+        public virtual ICollection<MovieCountry> MovieCountries { get; set; }
     }
 }

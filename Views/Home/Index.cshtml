@@ -6,20 +6,20 @@
 <div class="row" style="padding-top: 20px;">
     <div class="col-md-4">
         <h1>Search</h1>
-        <form action="@Url.Action("Filter","Home")" method="post">
-            @Html.AntiForgeryToken()
+        <form>
             <div class="form-group">
                 <label>Starting Date</label>
-                <input type="date" class="form-control" name="FromDate" />
+                <input type="date" class="form-control" name="FromDate" value="@(Model.start?.ToString("yyyy-MM-dd"))" />
             </div>
             <div class="form-group">
                 <label>Ending Date</label>
-                <input type="date" class="form-control" name="ToDate" />
+                <input type="date" class="form-control" name="ToDate" value="@(Model.end?.ToString("yyyy-MM-dd"))" />
             </div>
             <button type="submit" class="btn btn-primary">Gonder</button>
         </form>
     </div>
     <div class="col-md-8">
+        <a href="@Url.RouteUrl("AddMovie", null)" class="btn btn-primary" style="width:100%; margin-bottom:20px;">Add</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -29,6 +29,7 @@
                     <th>Genres</th>
                     <th>Countries</th>
                     <th>Link</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,20 +41,20 @@
                         <a href="@Url.Action("Detail","Home", new { id=@movie.Id })" target="_blank">
                             @movie.Name
                         </a>
-                        
+
                     </td>
                     <td>@movie.PublicationDate.ToString("dd.MM.yyyy")</td>
                     <td>@movie.Duration min</td>
                     <td>
-                        @foreach (var genre in Model.GetGenresOfMovie(movie.Id))
+                        @foreach (var genre in movie.MovieGenres)
                         {
-                            <span class="badge">@genre.Name </span>
+                            <span class="badge">@genre.Genre.Name </span>
                         }
                     </td>
                     <td>
-                        @foreach (var country in Model.GetCountriesOfMovie(movie.Id))
+                        @foreach (var country in movie.MovieCountries)
                         {
-                            <span class="badge">@country.Name </span>
+                            <span class="badge">@country.Country.Name </span>
                         }
                     </td>
                     <td>
@@ -61,8 +62,11 @@
                             Trailer
                         </a>
                     </td>
+                    <td style="display: flex; justify-content: space-around;">
+                        <a href="@Url.RouteUrl("EditMovie", new { id=@movie.Id})"><i class="far fa-edit"></i></a> 
+                        <a href="@Url.RouteUrl("DeleteMovie", new { id=@movie.Id})"><i class="fas fa-trash-alt"></i></a>
+</td>
                 </tr>
-
 
                 }
 

@@ -9,8 +9,8 @@ namespace MovieProject.Models
     {
         public Country()
         {
-            this.Movies = new HashSet<Movie>();
+            this.MovieCountries = new HashSet<MovieCountry>();
         }
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<MovieCountry> MovieCountries { get; set; }
     }
 }

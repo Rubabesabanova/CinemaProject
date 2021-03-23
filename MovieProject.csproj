@@ -126,20 +126,31 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103111342296_AddingInitialTables.cs" />
-    <Compile Include="Migrations\202103111342296_AddingInitialTables.designer.cs">
-      <DependentUpon>202103111342296_AddingInitialTables.cs</DependentUpon>
+    <Compile Include="Migrations\202103220821170_AddingInitialTables.cs" />
+    <Compile Include="Migrations\202103220821170_AddingInitialTables.Designer.cs">
+      <DependentUpon>202103220821170_AddingInitialTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103220823150_AddingHallandSeats.cs" />
+    <Compile Include="Migrations\202103220823150_AddingHallandSeats.Designer.cs">
+      <DependentUpon>202103220823150_AddingHallandSeats.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CinemaViewModel.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieCountry.cs" />
+    <Compile Include="Models\MovieGenre.cs" />
+    <Compile Include="Models\Seat.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModels\AuthViewModel.cs" />
+    <Compile Include="Models\ViewModels\IndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CinemaDbContext.cs" />
   </ItemGroup>
@@ -165,6 +176,7 @@
     <Content Include="Public\js\jquery.validate.unobtrusive.js" />
     <Content Include="Public\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Public\js\modernizr-2.8.3.js" />
+    <Content Include="Public\js\select2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -180,7 +192,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
-    <Content Include="Views\Home\Filter.cshtml" />
+    <Content Include="Views\Home\AddorUpdateMovie.cshtml" />
+    <Content Include="Views\Auth\Delete.cshtml" />
+    <Content Include="Views\Auth\Details.cshtml" />
+    <Content Include="Views\Auth\Edit.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -199,8 +215,11 @@
     <Content Include="Public\js\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103111342296_AddingInitialTables.resx">
-      <DependentUpon>202103111342296_AddingInitialTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103220821170_AddingInitialTables.resx">
+      <DependentUpon>202103220821170_AddingInitialTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103220823150_AddingHallandSeats.resx">
+      <DependentUpon>202103220823150_AddingHallandSeats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

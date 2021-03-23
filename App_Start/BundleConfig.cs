@@ -25,6 +25,9 @@ namespace MovieProject
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Public/Content/bootstrap.css",
                       "~/Public/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/select2").Include(
+                      "~/Public/js/select2.js"));
         }
     }
 }

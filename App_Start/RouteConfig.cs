@@ -12,6 +12,7 @@ namespace MovieProject
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name: "Detail",
@@ -24,6 +25,8 @@ namespace MovieProject
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            
+
         }
     }
 }

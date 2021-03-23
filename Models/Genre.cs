@@ -9,8 +9,8 @@ namespace MovieProject.Models
     {
         public Genre()
         {
-            this.Movies = new HashSet<Movie>();
+            this.MovieGenres = new HashSet<MovieGenre>();
         }
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<MovieGenre> MovieGenres { get; set; }
     }
 }

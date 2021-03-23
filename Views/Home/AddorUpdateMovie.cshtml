@@ -1,0 +1,65 @@
+﻿
+
+@{
+    ViewBag.Title = "AddorUpdateMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddorUpdateMovie</h2>
+    
+<div class="form-horizontal">
+    <h4>Movie</h4>
+    <hr />
+    <form action="@Url.Action("AddorUpdate", "Home")" method="post" style="width: fit-content; margin: 0 auto;">
+        @Html.AntiForgeryToken()
+        @if (Model.MovieId != 0)
+        {
+        <input type="hidden" name="Id" value="@Model.MovieId" />
+        }
+        <div class="form-group">
+            <label>Name </label>
+                <input type="text" class="form-control" name="Name" value=@(Model.MovieId==0 ? "" : @Model.Movies[0].Name)  />
+            
+        </div>
+        <div class="form-group">
+            <label>Publication Date</label>
+            <input type="date" class="form-control" name="PublicationDate" value=@(Model.Movies[0].PublicationDate?.ToString("yyyy-MM-dd")) />
+        </div>
+        <div class="form-group">
+            <label>Duration </label>
+            <input type="text" class="form-control" name="Duration" value=@(Model.MovieId==0 ? "" : @Model.Movies[0].Duration) />
+        </div>
+        <div class="form-group">
+            <label>Link</label>
+            <input type="text" class="form-control" name="Link" value=@(Model.MovieId==0 ? "" : @Model.Movies[0].Link) />
+        </div>
+        <div class="form-group">
+            <label style="display: block;">Countries </label>
+            <select name="Countries" required multiple class="form-control js-example-basic-multiple">
+                @foreach (var country in Model.Countries)
+                {
+                    <option @(((IEnumerable<dynamic>)Model.Movies[0].MovieCountries).Where(x=>x.CountryId == country.Id).Count() >0 ? "selected" : "") value="@country.Id">@country.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label style="display: block;">Genres</label>
+            <select name="Genres" required multiple class="form-control js-example-basic-multiple">
+                @foreach (var genre in Model.Genres)
+                {
+                    <option @(((IEnumerable<dynamic>)Model.Movies[0].MovieGenres).Where(x=>x.GenreId == genre.Id).Count() >0 ? "selected" : "") value="@genre.Id">@genre.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
