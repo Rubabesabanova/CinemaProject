@@ -27,11 +27,24 @@
 
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Halls", "Index", "Hall")</li>
+                        <li>@Html.ActionLink("Seats", "Index", "Seats")</li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Singup", "Index", "Auth")</li>
+                        @if (Session["User"] != null)
+                        {
+                            <li>
+                                <a>@Convert.ToString(Session["User"])</a> 
+                            </li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Auth")</li>
+                        }
+                        else
+                        {
+
+                            <li>@Html.ActionLink("Singup", "Index", "Auth")</li>
+                            <li>@Html.ActionLink("Login", "Login", "Auth")</li>
+                        }
+
                     </ul>
                 </div>
             </div>
@@ -46,9 +59,12 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/select2")
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

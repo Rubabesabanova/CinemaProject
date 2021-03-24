@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using MovieProject.Models;
 using MovieProject.Models.ViewModels;
@@ -18,57 +20,43 @@ namespace MovieProject.Controllers
 
         // GET: Auth
         [Route("Auth")]
-        public ActionResult Index()
+        public ActionResult Index(User usr)
         {
-            List<User> user = null;
+            usr= usr ?? new User() { };
             try
             {
-                user = db.Users.ToList();
 
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
             }
-            return View(user);
+            return View(usr);
         }
 
-        // GET: Auth/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        // GET: Auth/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Auth/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "Name,Surname,Email,Password")] User user)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    user.Password = Crypto.HashPassword(user.Password);
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    Session["User"] = user.Name;
+                    Session["UserId"] = user.Id;
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                
             }
 
-            return View(user);
+            return RedirectToAction("Index", user);
         }
 
         [HttpPost]
@@ -83,63 +71,57 @@ namespace MovieProject.Controllers
             }
             return Json(true);
         }
-        // GET: Auth/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
 
-        // POST: Auth/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("Auth/Login")]
+        public ActionResult Login(User usr)
+        {
+            usr = usr ?? new User() { };
+            try
+            {
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            return View(usr);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Surname,Email,Password,Name")] User user)
+        public ActionResult LoginView([Bind(Include = "Email,Password")] User user)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(user);
+                try
+                {
+                    User usr = db.Users.FirstOrDefault(x => x.Email == user.Email);
+                    if (usr != null)
+                    {
+                        if (Crypto.VerifyHashedPassword(usr.Password, user.Password))
+                        {
+                            Session["Logined"] = true;
+                            Session["User"] = usr.Name;
+                            Session["UserId"] = usr.Id;
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                
+                    Session.Timeout = 1;
+                    return RedirectToAction("Login", user);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            return RedirectToAction("Login", user);
         }
 
-        // GET: Auth/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Logout(User usr)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
+            Session["Logined"] = null;
+            Session["User"] = null;
+            Session["UserId"] = null;
+            return RedirectToAction("Login");
         }
-
-        // POST: Auth/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

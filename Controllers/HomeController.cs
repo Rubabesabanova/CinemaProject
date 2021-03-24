@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieProject.Filters;
 using MovieProject.Models;
 using MovieProject.Models.ViewModels;
 using MovieProject.Security;
@@ -14,6 +15,7 @@ namespace MovieProject.Controllers
     {
         CinemaDbContext cinemaDbContext = new CinemaDbContext();
 
+        [Auth]
         public ActionResult Index(DateTime? FromDate, DateTime? ToDate)
         {
             IndexViewModel viewModel = null;
@@ -41,7 +43,7 @@ namespace MovieProject.Controllers
             }
             return View(viewModel);
         }
-
+        [Auth]
         public ActionResult Detail(int id)
         {
             
@@ -53,7 +55,7 @@ namespace MovieProject.Controllers
                 return View(movie);
            
         }
-
+        [Auth]
         [Route("Home/Movies/Add", Name ="AddMovie")]
         [Route("Home/Movies/{id:int}/Edit", Name ="EditMovie")]
         public ActionResult AddorUpdateMovie(int? id)
@@ -131,7 +133,7 @@ namespace MovieProject.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [Auth]
         [Route("Home/Movies/{id:int}/Delete", Name = "DeleteMovie")]
         public ActionResult Delete(int id)
         {

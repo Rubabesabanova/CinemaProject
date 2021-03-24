@@ -18,7 +18,7 @@
         }
         <div class="form-group">
             <label>Name </label>
-                <input type="text" class="form-control" name="Name" value=@(Model.MovieId==0 ? "" : @Model.Movies[0].Name)  />
+                <input type="text" class="form-control" name="Name" value=@(Model.MovieId==0 ? null : @Model.Movies[0].Name)  />
             
         </div>
         <div class="form-group">
@@ -27,18 +27,18 @@
         </div>
         <div class="form-group">
             <label>Duration </label>
-            <input type="text" class="form-control" name="Duration" value=@(Model.MovieId==0 ? "" : @Model.Movies[0].Duration) />
+            <input type="text" class="form-control" name="Duration" value=@(Model.MovieId==0 ? null : @Model.Movies[0].Duration) />
         </div>
         <div class="form-group">
             <label>Link</label>
-            <input type="text" class="form-control" name="Link" value=@(Model.MovieId==0 ? "" : @Model.Movies[0].Link) />
+            <input type="text" class="form-control" name="Link" value=@(Model.MovieId==0 ? null : @Model.Movies[0].Link) />
         </div>
         <div class="form-group">
             <label style="display: block;">Countries </label>
             <select name="Countries" required multiple class="form-control js-example-basic-multiple">
                 @foreach (var country in Model.Countries)
                 {
-                    <option @(((IEnumerable<dynamic>)Model.Movies[0].MovieCountries).Where(x=>x.CountryId == country.Id).Count() >0 ? "selected" : "") value="@country.Id">@country.Name</option>
+                    <option @(Model.MovieId==0 ? null : ((IEnumerable<dynamic>)Model.Movies[0].MovieCountries).Where(x=>x.CountryId == country.Id).Count() >0 ? "selected" : null) value="@country.Id">@country.Name</option>
                 }
             </select>
         </div>
@@ -47,7 +47,7 @@
             <select name="Genres" required multiple class="form-control js-example-basic-multiple">
                 @foreach (var genre in Model.Genres)
                 {
-                    <option @(((IEnumerable<dynamic>)Model.Movies[0].MovieGenres).Where(x=>x.GenreId == genre.Id).Count() >0 ? "selected" : "") value="@genre.Id">@genre.Name</option>
+                    <option @(Model.MovieId==0 ? null : ((IEnumerable<dynamic>)Model.Movies[0].MovieGenres).Where(x=>x.GenreId == genre.Id).Count() >0 ? "selected" : null) value="@genre.Id">@genre.Name</option>
                 }
             </select>
         </div>
