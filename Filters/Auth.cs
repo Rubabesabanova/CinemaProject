@@ -10,7 +10,7 @@ namespace MovieProject.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (HttpContext.Current.Session["Loginned"] == null)
+            if (HttpContext.Current.Session["Logined"] == null)
             {
                 filterContext.Result = new RedirectResult("~/Auth");
                 return;

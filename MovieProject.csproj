@@ -142,6 +142,14 @@
     <Compile Include="Migrations\202103220823150_AddingHallandSeats.Designer.cs">
       <DependentUpon>202103220823150_AddingHallandSeats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103251918203_AddingValidations.cs" />
+    <Compile Include="Migrations\202103251918203_AddingValidations.Designer.cs">
+      <DependentUpon>202103251918203_AddingValidations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103252001465_AddingValidations2.cs" />
+    <Compile Include="Migrations\202103252001465_AddingValidations2.Designer.cs">
+      <DependentUpon>202103252001465_AddingValidations2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Entity.cs" />
@@ -224,6 +232,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103220823150_AddingHallandSeats.resx">
       <DependentUpon>202103220823150_AddingHallandSeats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103251918203_AddingValidations.resx">
+      <DependentUpon>202103251918203_AddingValidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103252001465_AddingValidations2.resx">
+      <DependentUpon>202103252001465_AddingValidations2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

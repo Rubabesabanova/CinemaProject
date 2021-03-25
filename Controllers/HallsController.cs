@@ -19,6 +19,7 @@ namespace MovieProject.Controllers
         private CinemaDbContext db = new CinemaDbContext();
 
         // GET: Halls
+        [Auth]
         [Route("Hall", Name = "Index")]
         public ActionResult Index(int? id)
         {
@@ -60,9 +61,10 @@ namespace MovieProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Name")] Hall hall)
         {
+            Session["HallUnique"] = true;
             if (NameIsUnique(hall.Name.ToLower()))
             {
-                Session["HallUnique"] = true;
+                Session["HallUnique"] = null;
                 if (ModelState.IsValid)
                 {
                     hall.Name = hall.Name.ToLower();
@@ -91,9 +93,10 @@ namespace MovieProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Update([Bind(Include = "Id,Name")] Hall hall)
         {
+            Session["HallUnique"] = true;
             if (NameIsUnique(hall.Name.ToLower()))
             {
-                Session["HallUnique"] = true;
+                Session["HallUnique"] = null;
                 if (ModelState.IsValid)
                 {
                     hall.Name = hall.Name.ToLower();
@@ -105,7 +108,7 @@ namespace MovieProject.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [Auth]
         [Route("Home/Halls/{id:int}/Delete", Name = "DeleteHall")]
         public ActionResult Delete(int id)
         {

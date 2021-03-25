@@ -17,11 +17,13 @@ namespace MovieProject.Models
         [DataType(DataType.EmailAddress)]
         [MaxLength(255)]
         [Remote("EmailIsUnique", "Auth", HttpMethod = "POST", ErrorMessage = "Email already exists.")]
+        [Required(ErrorMessage = "The field is required")]
         public string Email { get; set; }
 
 
         [MinLength(6)]
         [MaxLength(255)]
+        [Required(ErrorMessage = "The field is required")]
         public string Password { get; set; }
     }
 }

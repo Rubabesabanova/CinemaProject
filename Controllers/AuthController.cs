@@ -38,38 +38,44 @@ namespace MovieProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "Name,Surname,Email,Password")] User user)
         {
-            if (ModelState.IsValid)
+            Session["EmailUnique"] = true;
+            if (EmailIsUnique(user.Email))
             {
-                try
+                Session["EmailUnique"] = null;
+                if (ModelState.IsValid)
                 {
-                    user.Password = Crypto.HashPassword(user.Password);
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                    Session["User"] = user.Name;
-                    Session["UserId"] = user.Id;
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                
-            }
+                    try
+                    {
+                        user.Password = Crypto.HashPassword(user.Password);
+                        db.Users.Add(user);
+                        db.SaveChanges();
+                        Session["Logined"] = true;
+                        Session["User"] = user.Name;
+                        Session["UserId"] = user.Id;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
 
+                }
+            }
+            
             return RedirectToAction("Index", user);
         }
 
         [HttpPost]
-        public JsonResult EmailIsUnique(string email)
+        public bool EmailIsUnique(string email)
         {
             foreach (var item in db.Users)
             {
                 if (item.Email==email)
                 {
-                    return Json(false);
+                    return false;
                 }
             }
-            return Json(true);
+            return true;
         }
 
         [Route("Auth/Login")]
