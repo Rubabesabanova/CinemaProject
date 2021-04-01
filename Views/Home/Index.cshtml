@@ -1,0 +1,716 @@
+﻿@model OnePageApplication.Models.HomeViewModel
+
+@{ ViewBag.Title = "Home Page"; }
+@*
+    <!-- =========    FEATURES START    ======== -->
+    <section class="features">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="feat-container">
+                    @foreach (var feature in Model.Features)
+                    {
+                        <div class="col-md-4 feature-box">
+                            <span class="icon icon-@feature.Icon"></span>
+                            <h3>@feature.Name</h3>
+                            <p>@feature.Description</p>
+                        </div>
+                    }
+
+                    <div class="col-md-4 feature-box">
+                        <span class="icon icon-genius"></span>
+                        <h3>Modern Coding</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                    </div>
+                    <div class="col-md-4 feature-box">
+                        <span class="icon icon-tools"></span>
+                        <h3>User Experience</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                    </div>
+                    <div class="col-md-4 feature-box">
+                        <span class="icon icon-beaker"></span>
+                        <h3>Web Optimization</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- =========    FEATURES END    ======== -->
+    <!-- =========    ABOUT START    ======== -->
+    <section class="sections about" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="about-con col-md-9">
+                <h4>@Model.About.PreTitle</h4>
+                <h3>@Html.Raw(@Model.About.Title)</h3>
+                <p>@Model.About.Text</p>
+                <!-- SIGNATURE -->
+                <div class="signature">
+                    <img src=@($"~/Public/img/{Model.About.Signature}.jpg") alt="signature" />
+                </div>
+            </div>
+                <!--<div class="about-con col-md-9">
+            <h4>Let’s Start your Business</h4>
+            <h3>Welcome to <span>Escanor</span></h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry. Lorem Ipsum has been the industry's standard dummy text since. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text since. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                <!-- SIGNATURE -->
+                <!--<div class="signature">
+                <img src="~/Public/img/signature.png" alt="signature" />
+            </div>
+        </div>-->
+
+
+            </div>
+                </div>
+            </section>
+            <!-- =========    ABOUT END    ======== -->
+            <!-- =========    SERVICES START    ======== -->
+            <section class="sections services" id="services" data-scroll-index="2">
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="title">
+                            <h3>Our Services</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                        </div>
+
+
+                        <!-- Services items -->
+                        <div class="col-md-4">
+                            <div class="item">
+                                <!-- HOVER EFFECT -->
+                                <div class="moving-border"><div></div></div>
+                                <!-- SERVICE ICON -->
+                                <span class="icon icon-linegraph"></span>
+                                <!-- SERVICE TITLE -->
+                                <h5>Unique Design</h5>
+                                <!-- SERVICES CONTENT -->
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+
+                        <!-- Services items -->
+                        <div class="col-md-4">
+                            <div class="item">
+                                <!-- HOVER EFFECT -->
+                                <div class="moving-border"><div></div></div>
+                                <!-- SERVICE ICON -->
+                                <span class="icon icon-mobile"></span>
+                                <!-- SERVICE TITLE -->
+                                <h5>responsive Design</h5>
+                                <!-- SERVICES CONTENT -->
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+
+                        <!-- Services items -->
+                        <div class="col-md-4">
+                            <div class="item">
+                                <!-- HOVER EFFECT -->
+                                <div class="moving-border"><div></div></div>
+                                <!-- SERVICE ICON -->
+                                <span class="icon icon-pencil"></span>
+                                <!-- SERVICE TITLE -->
+                                <h5>Graphic Design</h5>
+                                <!-- SERVICES CONTENT -->
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+
+                        <!-- Services items -->
+                        <div class="col-md-4">
+                            <div class="item">
+                                <!-- HOVER EFFECT -->
+                                <div class="moving-border"><div></div></div>
+                                <!-- SERVICE ICON -->
+                                <span class="icon icon-laptop"></span>
+                                <!-- SERVICE TITLE -->
+                                <h5>Web Design</h5>
+                                <!-- SERVICES CONTENT -->
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+
+                        <!-- Services items -->
+                        <div class="col-md-4">
+                            <div class="item">
+                                <!-- HOVER EFFECT -->
+                                <div class="moving-border"><div></div></div>
+                                <!-- SERVICE ICON -->
+                                <span class="icon icon-layers"></span>
+                                <!-- SERVICE TITLE -->
+                                <h5>Different Layout Type</h5>
+                                <!-- SERVICES CONTENT -->
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+
+                        <!-- Services items -->
+                        <div class="col-md-4">
+                            <div class="item">
+                                <!-- HOVER EFFECT -->
+                                <div class="moving-border"><div></div></div>
+                                <!-- SERVICE ICON -->
+                                <span class="icon icon-puzzle"></span>
+                                <!-- SERVICE TITLE -->
+                                <h5>Development</h5>
+                                <!-- SERVICES CONTENT -->
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+            <!-- =========    SERVICES END    ======== -->
+            <!-- =========    EXPERIENCES START    ======== -->
+            <section class="experiences">
+                <div class="container">
+                    <div class="row">
+
+
+                        <!-- EXPERIENCES CONTENT START -->
+                        <div class="exper-con sections col-md-7">
+
+
+                            <h5>Why You Can Choose Us ?</h5>
+                            <h4>Building flexible, design-driven websites with Escanor.</h4>
+                            <p>Lorem Ipsum is simply dummy text of the when an unknown printer took printing and type setting industry It has survived not only five centuries.</p>
+
+                            <!-- SKILLS START -->
+                            <div class="skills">
+                                @foreach (var skill in Model.Skills)
+                                {
+                                    <div class="single_progress_bar col-md-12">
+                                        <h2>@skill.Name - @skill.SkillPoint%</h2>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @skill.Point%;">
+                                                <span class="sr-only">@skill.Point% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                <!-- SKILLS END -->
+
+
+            </div>
+                <!-- EXPERIENCES CONTENT END -->
+
+
+            </div>
+        </div>
+    </section>
+    <!-- =========    EXPERIENCES END    ======== -->
+    <!-- =========    WORK START    ======== -->
+    <section class="sections work" id="work" data-scroll-index="3">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="title">
+                    <h3>Latest Works</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                </div>
+
+
+                <!-- WORK FILTER BUTTONS -->
+                <div class="button-group filter-work">
+                    <a class="button is-checked" data-filter="*">All</a>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <a class="button " data-filter=".item-@category.Name.ToLower().Replace(" ", "_" )">@category.Name</a>
+                    }
+                    <a class="button " data-filter=".item-branding">Branding</a>
+                    <a class="button" data-filter=".item-mobile">Mobile</a>
+                    <a class="button" data-filter=".item-userexperience">User Experience</a>
+                    <a class="button" data-filter=".item-webdesign">Web Design</a>
+            </div>
+<!-- END WORK FILTER BUTTONS -->
+<!-- WORK CONTENT START -->
+<div class="work-content">
+
+
+    <!-- WORK ITEM -->
+    @foreach (var project in Model.Projects)
+    {
+<div class=@($"work-item item-{project.Category.Name.ToLower().Replace(" ", "_")}")>
+    <div class="work-caption">
+        <a class="modal-image" href="#modal-image-@project.Id">
+
+            <!-- WORK IMAGE -->
+            <img src=@($"~/Public/img/portfolio/{@project.Photo}.jpg") alt="Image Title" />
+
+            <!-- WORK TITLE -->
+            <div class="overlay">
+                <div class="info-content">
+                    <h4>@project.Name</h4>
+                </div>
+            </div>
+
+            <!-- POPUP WHITE BOX -->
+            <div id="modal-image-@project.Id" class="white-popup mfp-hide">
+
+                <!-- POPUP WHITE BOX IMAGE -->
+                <img src=@($"~/Public/img/portfolio/{@project.Photo}.jpg") alt="Image Title" />
+
+                <div>
+                    <!-- POPUP WHITE BOX TITLE -->
+                    <h3>@project.Name</h3>
+
+                    <!-- POPUP WHITE BOX DESCRIPTION -->
+                    <p>@project.Description</p>
+                </div>
+            </div>
+            <!-- END POPUP WHITE BOX -->
+
+        </a>
+    </div>
+</div>}
+</div>
+<!-- WORK CONTENT END -->
+        </div>
+    </div>
+</section>
+<!-- =========    WORK END    ======== -->
+<!-- =========    FACTS START    ======== -->
+<section class="sections facts">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- Fun Facts item -->
+            <div class="fact-item col-md-3 col-sm-6">
+                <div class="counting-icon">
+                    <!-- Icon -->
+                    <span class="icon icon-tools"></span>
+                </div>
+                <!-- Number -->
+                <span class="count" data-from="0" data-to="155">155</span>
+                <!-- Title -->
+                <h4>PROJECTS DONE</h4>
+            </div>
+
+            <!-- Fun Facts item -->
+            <div class="fact-item col-md-3 col-sm-6">
+                <div class="counting-icon">
+                    <!-- Icon -->
+                    <span class="icon icon-trophy"></span>
+                </div>
+                <!-- Number -->
+                <span class="count" data-from="0" data-to="5">5</span>
+                <!-- Title -->
+                <h4>AWARDS</h4>
+            </div>
+
+            <!-- Fun Facts item -->
+            <div class="fact-item col-md-3 col-sm-6">
+                <div class="counting-icon">
+                    <!-- Icon -->
+                    <span class="icon icon-happy"></span>
+                </div>
+                <!-- Number -->
+                <span class="count" data-from="0" data-to="165">165</span>
+                <!-- Title -->
+                <h4>HAPPY CLIENTS</h4>
+            </div>
+
+            <!-- Fun Facts item -->
+            <div class="fact-item col-md-3 col-sm-6">
+                <div class="counting-icon">
+                    <!-- Icon -->
+                    <span class="icon icon-puzzle"></span>
+                </div>
+                <!-- Number -->
+                <span class="count" data-from="0" data-to="95">95</span>
+                <!-- Title -->
+                <h4>GIVING SUPPORT</h4>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- =========    FACTS END    ======== -->
+<!-- =========    PRICE START    ======== -->
+<section class="sections price" id="price" data-scroll-index="4">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="title">
+                <h3>Our Pricing</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+            </div>
+
+
+            <!-- PRICING CONTENT START -->
+            <div class="price-c">
+
+
+                <!-- PRICE TABLE START -->
+                <div class="price-table col-md-4">
+
+                    <div class="item text-center">
+                        <div class="type">
+                            <h5>Basic</h5>
+                        </div>
+                        <div class="mount">
+                            <h3><span>$</span>10</h3>
+                        </div>
+                        <div class="features">
+                            <p>10 GB Disk Space</p>
+                            <p>1 Domain Names</p>
+                            <p>1 Email Address</p>
+                            <p>_</p>
+                        </div>
+                        <div class="order">
+                            <a href="#">
+                                Purchase Now
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- PRICE TABLE END -->
+                <!-- PRICE TABLE START -->
+                <div class="price-table col-md-4 best">
+
+                    <div class="item text-center">
+                        <div class="type">
+                            <h5>Standard</h5>
+                        </div>
+                        <div class="mount">
+                            <h3><span>$</span>40</h3>
+                        </div>
+                        <div class="features">
+                            <p>100 GB Disk Space</p>
+                            <p>10 Domain Names</p>
+                            <p>10 Email Address</p>
+                            <p>Unlimited Support</p>
+                        </div>
+                        <div class="order">
+                            <a href="#">
+                                Purchase Now
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- PRICE TABLE END -->
+                <!-- PRICE TABLE START -->
+                <div class="price-table col-md-4">
+
+                    <div class="item text-center">
+                        <div class="type">
+                            <h5>Premium</h5>
+                        </div>
+                        <div class="mount">
+                            <h3><span>$</span>100</h3>
+                        </div>
+                        <div class="features">
+                            <p>500 GB Disk Space</p>
+                            <p>50 Domain Names</p>
+                            <p>50 Email Address</p>
+                            <p>Unlimited Support</p>
+                        </div>
+                        <div class="order">
+                            <a href="#">
+                                Purchase Now
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- PRICE TABLE END -->
+
+
+            </div>
+            <!-- PRICING CONTENT END -->
+
+
+        </div>
+    </div>
+</section>
+<!-- =========    PRICE END    ======== -->
+<!-- ====== TESTIMONIALS START ======  -->
+<section class="testimonials text-center">
+    <div class="testimonials-overlay sections">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="title">
+                    <h3>Client Testimonials</h3>
+                    <div class="devider"></div>
+                </div>
+
+
+                <div class="owl-carousel owl-theme">
+
+                    <!-- TESTIMONIALS ITEM -->
+                    <div class="t-item">
+                        <div class="testimonial-box col-md-8 col-xs-10">
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            <!-- TESTIMONIAL NAME -->
+                            <h3>Jessi Walsh<span>Manager @@ Company</span></h3>
+                        </div>
+                    </div>
+
+                    <!-- TESTIMONIALS ITEM -->
+                    <div class="t-item">
+                        <div class="testimonial-box col-md-8 col-xs-10">
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus. </p>
+                            <!-- TESTIMONIAL NAME -->
+                            <h3>Frank Rouse<span>Designer @@ Company</span></h3>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========    TESTIMONIALS END    ======== -->
+<!-- =========    BLOG START    ======== -->
+<section class="sections blog" id="blog" data-scroll-index="5">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="title">
+                <h3>Our Recent Posts</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+            </div>
+
+
+            <!-- START BLOG POST -->
+            <div class="col-md-4 blog-box">
+                <div class="blog-item">
+
+                    <!-- BLOG IMAGE -->
+                    <div class="feature-box-img" style="background-image: url('/Public/img/blog-img-1.jpg');">
+                        <div class="blog-overlay"></div>
+                    </div>
+
+                    <!-- CATEGORY AND TIME OF THE POST -->
+                    <ul class="info">
+                        <li class="category">
+                            <a href="#0">
+                                <i class="fa fa-tags"></i>
+                                <span>Mobile</span>
+                            </a>
+                        </li>
+                        <li class="time">
+                            <a href="#0">
+                                <i class="fa fa-calendar-o"></i>
+                                <span>7 jul 2017</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- POST TITLTE -->
+                    <a href="#0">
+                        <h4>Bootstrap is the Most Popular Framework</h4>
+                    </a>
+
+                    <!-- POST CONTENT-->
+                    <p>
+                        Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
+                    </p>
+
+                    <!-- POST LINK -->
+                    <div class="post-link">
+                        <a href="#0">
+                            Read More
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END BLOG POST -->
+            <!-- START BLOG POST -->
+            <div class="col-md-4 blog-box">
+                <div class="blog-item">
+
+                    <!-- BLOG IMAGE -->
+                    <div class="feature-box-img" style="background-image: url('/Public/img/blog-img-2.jpg');">
+                        <div class="blog-overlay"></div>
+                    </div>
+
+                    <!-- CATEGORY AND TIME OF THE POST -->
+                    <ul class="info">
+                        <li class="category">
+                            <a href="#0">
+                                <i class="fa fa-tags"></i>
+                                <span>Wordpress</span>
+                            </a>
+                        </li>
+                        <li class="time">
+                            <a href="#0">
+                                <i class="fa fa-calendar-o"></i>
+                                <span>6 May 2017</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- POST TITLTE -->
+                    <a href="#0">
+                        <h4>Best Original Web Layouts</h4>
+                    </a>
+
+                    <!-- POST CONTENT-->
+                    <p>
+                        Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
+                    </p>
+
+                    <!-- POST LINK -->
+                    <div class="post-link">
+                        <a href="#0">
+                            Read More
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END BLOG POST -->
+            <!-- START BLOG POST -->
+            <div class="col-md-4 blog-box">
+                <div class="blog-item">
+
+                    <!-- BLOG IMAGE -->
+                    <div class="feature-box-img" style="background-image: url('/Public/img/blog-img-3.jpg');">
+                        <div class="blog-overlay"></div>
+                    </div>
+
+                    <!-- CATEGORY AND TIME OF THE POST -->
+                    <ul class="info">
+                        <li class="category">
+                            <a href="#0">
+                                <i class="fa fa-tags"></i>
+                                <span>UX</span>
+                            </a>
+                        </li>
+                        <li class="time">
+                            <a href="#0">
+                                <i class="fa fa-calendar-o"></i>
+                                <span>15 apr 2017</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- POST TITLTE -->
+                    <a href="#0">
+                        <h4>Designed for Everyone, Everywhere</h4>
+                    </a>
+
+                    <!-- POST CONTENT-->
+                    <p>
+                        Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
+                    </p>
+
+                    <!-- POST LINK -->
+                    <div class="post-link">
+                        <a href="#0">
+                            Read More
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END BLOG POST -->
+
+
+        </div>
+    </div>
+</section>
+<!-- =========    BLOG START    ======== -->
+<!-- =========    CONTACT START    ======== -->
+<section class="sections contact" id="contact" data-scroll-index="6">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="title">
+                <h3>Get in Touch</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+            </div>
+
+
+            <!-- CONTACT INFO START  -->
+            <div class="contact-info col-md-12">
+
+
+                <div class="item col-md-4">
+                    <span class="icon icon-map-pin"></span>
+                    <h5>Upper Level, Overseas Passenger</h5>
+                    <h5>Terminal, The Rocks, Sydney 2000</h5>
+                </div>
+
+                <div class="item col-md-4">
+                    <span class="icon icon-mobile"></span>
+                    <h5>Any time. We are open 24/7</h5>
+                    <h5>+1 (123) 456-7899</h5>
+                </div>
+
+                <div class="item col-md-4">
+                    <span class="icon icon-envelope"></span>
+                    <h5>Best support via email</h5>
+                    <h5>no-reply@domain.com</h5>
+                </div>
+
+
+            </div>
+            <!-- CONTACT INFO END  -->
+            <!-- CONTACT FORM START -->
+            <div class="col-md-12 contact-form">
+                <form action="http://joker-themes.com/escanordemo/demos/default-version/php/contact.php" method="POST" class="cont-fo">
+
+
+                    <div class="contact-item col-md-6">
+                        <input type="text" name="name" placeholder="Name *" required="required">
+                    </div>
+                    <div class="contact-item col-md-6">
+                        <input type="email" name="email" placeholder="Email *" required="required">
+                    </div>
+                    <div class="contact-item col-md-6">
+                        <input type="text" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="contact-item col-md-6">
+                        <input type="text" name="website" placeholder="Website">
+                    </div>
+
+                    <div class="contact-item col-md-12">
+                        <textarea id="form_message" name="message" placeholder="Message *" rows="4" required="required" data-error="Message."></textarea>
+                    </div>
+                    <div class="contact-item col-md-12">
+                        <input type="submit" class="button disabled" value="Send Message">
+                    </div>
+
+
+                </form>
+            </div>
+            <!-- CONTACT FORM END -->
+
+
+        </div>
+    </div>
+</section>
+<!-- =========    CONTACT END    ======== -->
+<!-- =========    GOOGLE MAP START    ======== -->
+<div id="map"></div>
+<!-- =========    GOOGLE MAP END    ======== -->*@

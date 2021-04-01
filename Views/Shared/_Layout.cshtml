@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DESCRIPTION">
+    <meta name="keywords" content="KEYWORDS">
+    <meta name="author" content="AUTHOR NAME">
+
+    <!-- TITLE -->
+    <title>Escanor - One Page Parallax</title>
+
+    <!-- FAVICON -->
+    <link href="~/Public/img/favicon/favicon.ico" rel="icon">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Public/img/favicon/apple-touch-icon-144x144.html">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Public/img/favicon/apple-touch-icon-114x114.html">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Public/img/favicon/apple-touch-icon-72x72.html">
+    <link rel="apple-touch-icon" href="~/Public/img/favicon/apple-touch-icon.html">
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="~/Public/css/bootstrap/bootstrap.min.css">
+
+    <!-- FONT-AWESOME & ET-LINE-FONT CSS -->
+    <link rel="stylesheet" href="~/Public/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Public/css/et-line-font/et-line-font.css">
+
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link href="~/Public/css/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- OWL CAROUSEL -->
+    <link href="~/Public/css/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Public/css/owl-carousel/owl.theme.default.min.css" rel="stylesheet">
+
+    <!-- MAIN STYLE CSS -->
+    <link rel="stylesheet" href="~/Public/css/style.css">
+
+    <!-- RESPONSIVE STYLE CSS -->
+    <link rel="stylesheet" href="~/Public/css/responsive.css">
+
+    <!-- COLORS CSS -->
+    <link rel="stylesheet" href="~/Public/css/colors/blue.css">
+
+</head>
+<body>
+
+
+    <!-- ====== Preloader ======  -->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+            </div>
+        </div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- =========    HEADER START    ======== -->
+    <section class="s-header" id="home" data-scroll-index="0" style="background:url(/Public/img/@ViewBag.Settings.IntroPhoto)">
+        <div class="header-overlay">
+
+
+            <!-- ====== NAVGITION ======  -->
+            <nav class="navbar land-nav navbar-fixed-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- logo -->
+                            <a class="logo navbar-brand" href="#home" data-scroll-nav="0">
+
+                                <span>@ViewBag.Settings.Logo</span>
+
+                            </a>
+                        </div>
+
+                        <!-- Collect the nav links, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="collapse">
+
+                            <!-- links -->
+                            <ul class="nav navbar-nav navbar-right" id="navbar">
+                                @*@foreach (var item in ViewBag.Menus)
+                                {
+                                <li><a href="#@item.Name.ToLower()" data-scroll-nav="@item.Id" class="active">@item.Name</a></li>
+                    }*@
+                                <li><a href="#home" data-scroll-nav="0" class="active">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#services" data-scroll-nav="2">Services</a></li>
+                                <li><a href="#work" data-scroll-nav="3">Work</a></li>
+                                <li><a href="#price" data-scroll-nav="4">Price</a></li>
+                                <li><a href="#blog" data-scroll-nav="5">Blog</a></li>
+                                <li><a href="#contact" data-scroll-nav="6">Contact</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </div><!-- /.container -->
+            </nav>
+            <!-- ====== END NAVGITION ======  -->
+            <!-- Header Content -->
+            <div class="middle-c text-center">
+                <div class="capt">
+
+                    <h1>@ViewBag.Settings.Title</h1>
+                    <h3>@ViewBag.Settings.PreTitle</h3>
+
+                    <!-- Buttons -->
+                    <div class="header-btn">
+                        <a href="#about" >Getting Started</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Content -->
+
+
+        </div>
+    </section>
+    <!-- =========    HEADER END    ======== -->
+    @RenderBody()
+    <!-- =========    FOOTER START    ======== -->
+    <footer class="sections">
+        <div class="container">
+            <div class="row">
+
+
+                <!-- SOCIAL ICONS -->
+                <div class="sc-icon">
+                    <a href="@ViewBag.Settings.Facebook">
+                        <span>
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    <a href="#0">
+                        <span>
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    <a href="#0">
+                        <span>
+                            <i class="fa fa-behance" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    <a href="#0">
+                        <span>
+                            <i class="fa fa-vimeo" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    <a href="#0">
+                        <span>
+                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    <a href="#0">
+                        <span>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+
+
+                <!-- START RIGHTS -->
+                <div class="sub-footer">
+                    <span>@ViewBag.Settings.SubFooterText</span>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <!-- =========    FOOTER END    ======== -->
+    <!-- ====== JS ======  -->
+    <!-- JQUERY -->
+    <script src="~/Public/js/jquery.v1.12.4.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="~/Public/js/bootstrap.min.js"></script>
+    <!-- COUNT TO JS -->
+    <script src="~/Public/js/jquery.countTo.js"></script>
+    <!-- OWL CAROUSEL JS -->
+    <script src="~/Public/js/owl.carousel.min.js"></script>
+    <!-- ISOTOPE JS -->
+    <script src="~/Public/js/isotope.pkgd.min.js"></script>
+    <!-- MASONRY JS -->
+    <script src="~/Public/js/masonry.pkgd.min.js"></script>
+    <!-- Magnific Popup core JS -->
+    <script src="~/Public/js/jquery.magnific-popup.min.js"></script>
+    <!-- PARSLEY file -->
+    <script src="~/Public/js/parsley.js"></script>
+    <!-- SCROLLIT file -->
+    <script src="~/Public/js/scrollIt.min.js"></script>
+    <!-- MAPS JS -->
+    <script src="~/Public/js/gmaps.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAduGkGiILZzHThk6zpT8DB7SBmP575dWs"></script>
+    <script src="~/Public/js/map.js"></script>
+    <!-- custom js -->
+    <script src="~/Public/js/main.js"></script>
+
+</body>
+
+</html>
